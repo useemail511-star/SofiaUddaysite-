@@ -1,84 +1,94 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Sofia & Udday ❤️</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap');
 
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:Poppins,sans-serif;color:white;background:#17000c;overflow-x:hidden}
-.slide{display:none;min-height:100vh;padding:35px 15px;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden}
-.slide.active{display:flex}
+.slide{display:none;min-height:100vh;width:100%;padding:35px 15px;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden}
+.slide.active{display:flex;animation:fade .6s ease}
+@keyframes fade{from{opacity:0;transform:scale(.98)}to{opacity:1;transform:scale(1)}}
 
 .bg{
 background:
-radial-gradient(circle at 20% 10%,rgba(255,120,170,.25),transparent 25%),
-radial-gradient(circle at 80% 20%,rgba(255,80,120,.28),transparent 30%),
-linear-gradient(135deg,#17000c,#4a001d,#b10045,#ff4f93);
+radial-gradient(circle at top right,rgba(255,120,160,.35),transparent 28%),
+radial-gradient(circle at bottom left,rgba(255,80,170,.32),transparent 32%),
+linear-gradient(135deg,#160008,#410017,#8f0038,#ff5d9d);
 }
 .darkred{
 background:
-radial-gradient(circle at center,rgba(255,65,120,.18),transparent 45%),
-linear-gradient(135deg,#090004,#2b000f,#6b001e,#130006);
+radial-gradient(circle at center,rgba(255,75,140,.20),transparent 45%),
+linear-gradient(135deg,#090004,#27000e,#690020,#150006);
 }
 .photo{
 background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),url('./0.jpg');
 background-size:cover;background-position:center;
 }
+
 .card{
-width:min(94%,720px);
+width:min(94%,730px);
 padding:32px 24px;
 border-radius:32px;
 background:rgba(255,255,255,.10);
 backdrop-filter:blur(16px);
-box-shadow:0 0 28px rgba(255,105,180,.7),0 0 70px rgba(255,0,90,.25);
+box-shadow:0 0 28px rgba(255,105,180,.75),0 0 70px rgba(255,0,90,.30);
 z-index:5;
 }
-h1{font-size:2.2rem;margin-bottom:16px;font-weight:900;text-shadow:0 0 16px white}
+h1{font-size:2.15rem;margin-bottom:16px;font-weight:900;text-shadow:0 0 16px rgba(255,255,255,.75)}
 h2{font-size:1.45rem;margin:15px 0;font-weight:900}
 p{font-size:1rem;line-height:1.55;margin:9px 0}
 button{
 border:0;border-radius:999px;padding:13px 24px;margin:10px;
 background:linear-gradient(135deg,#ff3f8f,#ff7b7b);
 color:white;font-weight:900;font-size:1rem;cursor:pointer;
-box-shadow:0 0 20px rgba(255,70,140,.7);
+box-shadow:0 0 20px rgba(255,70,140,.75);
+transition:.2s;
 }
 button:hover{transform:scale(1.05)}
-button:disabled{opacity:.45}
-input{width:90%;max-width:380px;padding:14px;border-radius:999px;border:2px solid rgba(255,255,255,.5);text-align:center;font-size:1rem;margin:12px}
-.big{font-size:1.8rem;font-weight:900;text-shadow:0 0 15px white}
+button:disabled{opacity:.45;cursor:not-allowed}
+input{width:90%;max-width:390px;padding:14px;border-radius:999px;border:2px solid rgba(255,255,255,.5);text-align:center;font-size:1rem;margin:12px}
+.big{font-size:1.8rem;font-weight:900;text-shadow:0 0 15px rgba(255,255,255,.75)}
 .hidden{display:none}
+
 .float{position:fixed;font-size:24px;animation:float 8s linear infinite;z-index:1;pointer-events:none}
 @keyframes float{from{transform:translateY(110vh) rotate(0);opacity:0}20%{opacity:1}to{transform:translateY(-20vh) rotate(360deg);opacity:0}}
+
 .timer{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:18px 0}
 .box{background:rgba(255,255,255,.22);border-radius:18px;padding:12px 5px}
 .box strong{display:block;font-size:1.2rem}
+
 .gallery img{width:100%;border-radius:20px;margin:15px 0;box-shadow:0 0 25px rgba(255,255,255,.35)}
 .gif{width:250px;max-width:85%;border-radius:20px;margin:18px auto;display:block}
-.stamp{display:inline-block;border:3px dashed gold;padding:13px 20px;border-radius:18px;margin-bottom:22px;color:#fff7b2;font-size:1.5rem;font-weight:900}
+.stamp{display:inline-block;border:3px dashed gold;padding:13px 20px;border-radius:18px;margin-bottom:22px;color:#fff7b2;font-size:1.45rem;font-weight:900}
 .bear,.cat{font-size:4.5rem;animation:bounce .7s infinite alternate}
 @keyframes bounce{to{transform:translateY(-12px)}}
 .sign{background:#fff4cf;color:#2b1b12;border-radius:18px;padding:16px;margin:12px 0;font-weight:900}
+.requirement{margin-top:15px;color:#ffd6e7;font-size:.9rem}
+
 .popup{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;z-index:50;padding:20px}
 .popup.show{display:flex}
-.popcard{background:rgba(255,255,255,.15);backdrop-filter:blur(18px);border-radius:30px;padding:28px;max-width:540px;box-shadow:0 0 45px rgba(255,80,130,.8)}
-@media(max-width:480px){h1{font-size:1.7rem}h2{font-size:1.2rem}.big{font-size:1.35rem}p{font-size:.92rem}button{font-size:.9rem;padding:12px 17px}}
+.popcard{background:rgba(255,255,255,.15);backdrop-filter:blur(18px);border-radius:30px;padding:28px;max-width:540px;box-shadow:0 0 45px rgba(255,80,130,.8);text-align:center}
+
+@media(max-width:480px){
+h1{font-size:1.65rem}h2{font-size:1.17rem}.big{font-size:1.32rem}p{font-size:.92rem}button{font-size:.9rem;padding:12px 17px}.stamp{font-size:1.05rem}
+}
 </style>
 </head>
-<body>
 
+<body>
 <div id="floating"></div>
 
 <section class="slide bg active">
 <div class="card">
-<h1>This website is only for sofia 💖</h1>
-<p> if you are sofia </p>
-<p>One cute guy called <b>Udday</b>.</p>
-<p>And one cute girl called <b>Sofi</b>.</p>
-<p>If you're not one of them, this is not your love story.</p>
-<button onclick="next()">Okay Continue ❤️</button>
+<h1>🚨 WARNING 🚨</h1>
+<p>This website is only for Sofia ❤️</p>
+<p>If you are not Sofia, please leave now.</p>
+<p>If you are Sofia… you may continue.</p>
+<button onclick="next()">Continue ❤️</button>
 </div>
 </section>
 
@@ -88,7 +98,15 @@ input{width:90%;max-width:380px;padding:14px;border-radius:999px;border:2px soli
 <p>✅ Give Udday a kiss when you see him</p>
 <p>✅ Enter the magic words</p>
 <input id="magic" placeholder="Enter the magic words">
-<br><button onclick="unlock()">Unlock Website ❤️</button>
+<br>
+<button onclick="unlock()">Unlock Website ❤️</button>
+
+<p class="requirement">
+🔑 Requirement: Enter the magic words exactly as:
+<br><br>
+<b>"I love you Udday"</b> ❤️
+</p>
+
 <p id="lockmsg"></p>
 </div>
 </section>
@@ -108,9 +126,28 @@ input{width:90%;max-width:380px;padding:14px;border-radius:999px;border:2px soli
 
 <section class="slide photo">
 <div class="card">
-<div class="gallery"><img src="./0.jpg"></div>
-<h1>A Little Secret ❤️</h1>
-<p class="big">Every love song somehow reminds me of you ❤️</p>
+<h1>Our Story Started Here ❤️</h1>
+<p><b>Spanish:</b><br>Desde ese día, todo se volvió especial ❤️</p>
+<p><b>Punjabi:</b><br>ਉਸ ਦਿਨ ਤੋਂ ਸਭ ਕੁਝ ਖਾਸ ਹੋ ਗਿਆ ❤️</p>
+<p><b>English:</b><br>From that day on, everything became special ✨</p>
+
+<h2>Time since we first met ❤️</h2>
+<div class="timer">
+<div class="box"><strong id="days">0</strong>Days</div>
+<div class="box"><strong id="hours">0</strong>Hours</div>
+<div class="box"><strong id="minutes">0</strong>Minutes</div>
+<div class="box"><strong id="seconds">0</strong>Seconds</div>
+</div>
+
+<button onclick="showMemories()">You and Me Memories 📸</button>
+<div id="memories" class="hidden gallery">
+<img src="./0.jpg" alt="Memory">
+</div>
+
+<button onclick="showSecret()">A Little Secret ❤️</button>
+<p id="secret" class="hidden big">Every love song somehow reminds me of you ❤️</p>
+
+<p>And this is only the beginning... ✨</p>
 <button onclick="next()">Next ❤️</button>
 </div>
 </section>
@@ -119,7 +156,7 @@ input{width:90%;max-width:380px;padding:14px;border-radius:999px;border:2px soli
 <div class="card" id="qbox"></div>
 </section>
 
-<section class="slide bg" id="formSlide">
+<section class="slide darkred" id="formSlide">
 <div class="card">
 <div class="stamp">Official Girlfriend Renewal Form™ ❤️</div>
 <div id="formbox"></div>
@@ -167,7 +204,7 @@ I'm using my<br>
 <span class="big">ONE WISH WILLOW...</span>
 </div>
 <button onclick="next()">Yes ❤️</button>
-<button onclick="next()">Definitely Yes ❤️</button>
+<button onmouseover="runAway(this)" ontouchstart="runAway(this)">No 😭</button>
 </div>
 </section>
 
@@ -228,22 +265,55 @@ setTimeout(next,800);
 }else lockmsg.innerHTML="❌ Access Denied. Try the magic words ❤️";
 }
 
+function showMemories(){memories.classList.toggle('hidden')}
+function showSecret(){secret.classList.remove('hidden')}
+
+function updateTimer(){
+const start=new Date('2026-04-30T00:00:00');
+const now=new Date();
+let diff=now-start;
+days.innerText=Math.floor(diff/86400000);diff%=86400000;
+hours.innerText=Math.floor(diff/3600000);diff%=3600000;
+minutes.innerText=Math.floor(diff/60000);diff%=60000;
+seconds.innerText=Math.floor(diff/1000);
+}
+setInterval(updateTimer,1000);updateTimer();
+
 function q1(){
+slides[i].className='slide bg active';
 qbox.innerHTML=`
 <h1>Quick Questions</h1>
 <h2>Who's the cutest one?</h2>
-<button onclick="wrong1()">CHOFI</button>
-<button onclick="bearBias()">SOFI</button>`;
+<button onclick="wrongCuteFirst()">CHOFI</button>
+<button onclick="wrongCuteFirst()">SOFI</button>`;
 }
 
-function wrong1(){
+function wrongCuteFirst(){
+slides[i].className='slide darkred active';
 qbox.innerHTML=`
 <h1>❌ Wrong Answer</h1>
 <h2>Who's the cutest one?</h2>
 <p>Hmm... are you sure about that?</p>
-<p>Try again ❤️</p>
-<button onclick="q1()">Try Again ❤️</button>`;
+<p>The website is slightly disappointed 😔</p>
+<img class="gif" src="https://media.giphy.com/media/OPU6wzx8JrHna/giphy.gif">
+<button onclick="q1Again()">Try Again ❤️</button>`;
+}
+
+function q1Again(){
+slides[i].className='slide bg active';
+qbox.innerHTML=`
+<h1>Quick Questions</h1>
+<h2>Who's the cutest one?</h2>
+<button onclick="rightCute()">UDDAY</button>
+<button onclick="wrongCuteFirst()">SOFI</button>`;
+}
+
+function rightCute(){
 slides[i].className='slide darkred active';
+qbox.innerHTML=`
+<h1>✅ Yup, that's the correct answer ❤️</h1>
+<img class="gif" src="https://media.giphy.com/media/111ebonMs90YLu/giphy.gif">
+<button onclick="bearBias()">Next ❤️</button>`;
 }
 
 function bearBias(){
@@ -253,9 +323,37 @@ qbox.innerHTML=`
 <div class="bear">🐻</div>
 <div class="sign">He was biased while making this website ❤️</div>
 <div class="bear">🐻</div>
-<div class="sign">No he wasn’t... he loves Sofi ❤️</div>
+<div class="sign">No he wasn't... you're lying. He loves Sofia ❤️</div>
 <p>(Click anywhere to continue)</p>`;
-qbox.onclick=()=>{qbox.onclick=null; bearQuestion();}
+qbox.onclick=()=>{qbox.onclick=null; beautySlide();}
+}
+
+function beautySlide(){
+slides[i].className='slide darkred active';
+qbox.innerHTML=`
+<h1>How beautiful is Sofia? ❤️</h1>
+<button disabled>Beautiful</button>
+<button disabled>Sooo Beautiful</button>
+
+<p>Wait...</p>
+<p>You don't actually have to answer this one.</p>
+<p>Udday already did ❤️</p>
+
+<p>
+After careful research,<br>
+many observations,<br>
+deep studies,<br>
+countless hours of analysis,<br>
+several scientific calculations,<br>
+and a completely unbiased investigation...
+</p>
+
+<p>I have come to the conclusion that:</p>
+
+<p class="big">❤️ Sofia is unbelievably beautiful ❤️</p>
+<p class="big">🌹 She is more beautiful than red roses 🌹</p>
+
+<button onclick="bearQuestion()">Next Question ❤️</button>`;
 }
 
 function bearQuestion(){
@@ -264,7 +362,7 @@ qbox.innerHTML=`
 <h1>Quick Questions</h1>
 <h2>Who likes Bear more in the movie?</h2>
 <button onclick="bearAnswer()">Sofia</button>
-<button onmouseover="move(this)" ontouchstart="move(this)">Udday</button>`;
+<button onmouseover="runAway(this)" ontouchstart="runAway(this)">Udday</button>`;
 }
 
 function bearAnswer(){
@@ -291,7 +389,7 @@ qbox.innerHTML=`
 <h1>Quick Questions</h1>
 <h2>Who's smarter?</h2>
 <button onclick="smartWrong()">Udday</button>
-<button onmouseover="move(this)" ontouchstart="move(this)">Sofia</button>`;
+<button onmouseover="runAway(this)" ontouchstart="runAway(this)">Sofia</button>`;
 }
 
 function smartWrong(){
@@ -306,6 +404,8 @@ function bearBiasedFinal(){
 showPop(`
 <div class="bear">🐻</div>
 <div class="sign">I told you he was biased while making this website ❤️</div>
+<div class="bear">🐻</div>
+<div class="sign">No he wasn't... you're lying. He loves Sofia ❤️</div>
 <button onclick="closePop();smartFinal()">Continue ❤️</button>`);
 }
 
@@ -321,7 +421,7 @@ function form1(){
 formSlide.className='slide darkred active';
 formbox.innerHTML=`
 <h2>Do you like Udday?</h2>
-<button onmouseover="move(this)" ontouchstart="move(this)">Yes ❤️</button>
+<button onmouseover="runAway(this)" ontouchstart="runAway(this)">Yes ❤️</button>
 <button onclick="formNo()">No 😭</button>`;
 }
 
@@ -335,7 +435,8 @@ formbox.innerHTML=`
 
 function form2(){
 formbox.innerHTML=`
-<h2>Okay, let's try that again.</h2>
+<h2>Do you like Udday? 🤔💖</h2>
+<p>Okay, let's try that again.</p>
 <button onclick="formYes('Good choice ❤️')">Yes ❤️</button>
 <button onclick="formYes('That\\'s the right answer ❤️')">Definitely Yes ❤️</button>`;
 }
@@ -360,6 +461,7 @@ formbox.innerHTML=`<h2>Application accepted ❤️</h2><button onclick="next()">
 }
 
 function claim(){reward.classList.remove('hidden')}
+
 function finalPop(){
 showPop(`
 <div class="cat">🐱</div>
@@ -368,13 +470,20 @@ showPop(`
 <p>Have fun you two ❤️</p>
 <button onclick="endSite()">End ❤️</button>`);
 }
+
 function endSite(){
 closePop();
 last.innerHTML=`<h1>❤️ The End ❤️</h1><p>Now go enjoy your date.</p><h2>Sofi & Udday ❤️</h2>`;
 }
+
 function showPop(html){poptext.innerHTML=html;pop.classList.add('show')}
 function closePop(){pop.classList.remove('show')}
-function move(b){b.style.position='relative';b.style.left=(Math.random()*170-85)+'px';b.style.top=(Math.random()*100-50)+'px'}
+
+function runAway(btn){
+btn.style.position='relative';
+btn.style.left=(Math.random()*180-90)+'px';
+btn.style.top=(Math.random()*120-60)+'px';
+}
 
 setInterval(()=>{
 let symbols=['❤️','💕','💖','⭐','✨','🌟'];
