@@ -1,81 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sofia & Udday ❤️</title>
+<title>Sofia & Udday</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap');
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
-body{background:#120009;color:white;overflow-x:hidden}
-.slide{display:none;min-height:100vh;width:100%;padding:35px 15px;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden}
-.slide.active{display:flex;animation:fade .6s ease}
-@keyframes fade{from{opacity:0;transform:scale(.98)}to{opacity:1;transform:scale(1)}}
-@keyframes glow{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
-.red{background:linear-gradient(135deg,#ff1744,#8b0000,#ff4d6d,#2b0000);background-size:400% 400%;animation:glow 8s ease infinite}
-.pink{background:linear-gradient(135deg,#240046,#ff006e,#3a0ca3)}
-.darkred{background:radial-gradient(circle,#5b001f,#130007 75%)}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&family=Pacifico&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Poppins,sans-serif;color:white;background:#160018;overflow-x:hidden}
+.slide{display:none;min-height:100vh;padding:35px 15px;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden}
+.slide.active{display:flex}
+.old{background:radial-gradient(circle at top right,rgba(255,90,140,.35),transparent 35%),radial-gradient(circle at bottom left,rgba(180,80,255,.3),transparent 42%),linear-gradient(135deg,#1d1026,#3c1454,#5a1d7a)}
+.red{background:radial-gradient(circle at top,rgba(255,70,90,.45),transparent 35%),linear-gradient(135deg,#2b0010,#7a001f,#2b0010)}
+.dark{background:radial-gradient(circle,#5b001f,#130007 75%)}
 .story{background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url('./0.jpg');background-size:cover;background-position:center}
-.card{width:min(94%,700px);padding:32px 24px;border-radius:34px;background:rgba(255,255,255,.13);backdrop-filter:blur(18px);box-shadow:0 0 45px rgba(255,80,130,.55);position:relative;z-index:5}
-h1{font-size:2.3rem;font-weight:900;margin-bottom:16px;text-shadow:0 0 18px rgba(255,255,255,.35)}
-h2{font-size:1.55rem;font-weight:850;margin:15px 0}
+.card{width:min(94%,700px);padding:30px 22px;border-radius:32px;background:rgba(255,255,255,.13);backdrop-filter:blur(18px);box-shadow:0 0 45px rgba(255,80,160,.55);z-index:2}
+h1{font-size:2.1rem;margin-bottom:15px;font-weight:900;text-shadow:0 0 18px rgba(255,255,255,.4)}
+h2{font-size:1.4rem;margin:15px 0;font-weight:900}
 p{font-size:1rem;line-height:1.55;margin:9px 0}
-button{border:0;border-radius:999px;padding:13px 24px;margin:10px;background:linear-gradient(135deg,#ff3f8f,#ff7b7b);color:white;font-weight:900;font-size:1rem;cursor:pointer;box-shadow:0 0 20px rgba(255,70,140,.6);transition:.25s}
-button:hover{transform:scale(1.06)}
-button:disabled{opacity:.45;cursor:not-allowed}
+button{border:0;border-radius:999px;padding:13px 23px;margin:10px;background:linear-gradient(135deg,#ff3f8f,#ff7b7b);color:white;font-weight:900;font-size:1rem;cursor:pointer;box-shadow:0 0 20px rgba(255,70,140,.6)}
+button:disabled{opacity:.45}
 input{width:90%;max-width:380px;padding:14px;border-radius:999px;border:2px solid rgba(255,255,255,.5);text-align:center;font-size:1rem;margin:12px}
-.float{position:fixed;font-size:24px;animation:float 8s linear infinite;pointer-events:none;z-index:1}
-@keyframes float{from{transform:translateY(110vh) rotate(0);opacity:0}20%{opacity:1}to{transform:translateY(-20vh) rotate(360deg);opacity:0}}
+.warn{color:#ff4d6d;text-shadow:0 0 18px rgba(255,77,109,.9)}
+.love{font-family:Pacifico,cursive}
+.big{font-size:1.75rem;font-weight:900;text-shadow:0 0 18px rgba(255,255,255,.35)}
+.hidden{display:none}
+.gif{width:250px;max-width:85%;border-radius:20px;margin:18px auto;display:block}
+.gallery img{width:100%;border-radius:20px;margin-top:15px;box-shadow:0 0 25px rgba(255,255,255,.4)}
 .timer{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:18px 0}
 .box{background:rgba(255,255,255,.25);padding:12px 5px;border-radius:18px}
 .box strong{display:block;font-size:1.25rem}
-.hidden{display:none}
-.gallery img{width:100%;border-radius:20px;margin-top:15px;box-shadow:0 0 25px rgba(255,255,255,.4)}
-.gif{width:250px;max-width:85%;border-radius:20px;margin:18px auto;display:block}
-.big{font-size:1.9rem;font-weight:900;text-shadow:0 0 18px rgba(255,255,255,.35)}
-.stamp{display:inline-block;border:3px dashed gold;padding:13px 20px;border-radius:18px;margin-bottom:22px;color:#fff7b2;font-size:1.65rem;font-weight:900}
+.stamp{display:inline-block;border:3px dashed gold;padding:13px 20px;border-radius:18px;margin-bottom:22px;color:#fff7b2;font-size:1.5rem;font-weight:900}
 .badge{position:absolute;top:18px;left:18px;padding:8px 14px;border-radius:20px;background:rgba(255,255,255,.17);font-size:.8rem;font-weight:800}
-.popup{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;z-index:50;padding:20px}
+.float{position:fixed;font-size:24px;animation:float 8s linear infinite;pointer-events:none;z-index:1}
+@keyframes float{from{transform:translateY(110vh) rotate(0);opacity:0}20%{opacity:1}to{transform:translateY(-20vh) rotate(360deg);opacity:0}}
+.secret{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);font-weight:900;font-size:.92rem;color:#ffd6e7;text-shadow:0 0 12px white;z-index:3;width:95%;pointer-events:none}
+.popup{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:50;padding:20px}
 .popup.show{display:flex}
-.popupCard{background:rgba(255,255,255,.18);backdrop-filter:blur(18px);border-radius:30px;padding:28px;max-width:520px;box-shadow:0 0 45px rgba(255,80,130,.7)}
+.popcard{background:rgba(255,255,255,.18);backdrop-filter:blur(18px);border-radius:30px;padding:28px;max-width:520px;box-shadow:0 0 45px rgba(255,80,130,.7)}
 .bear,.cat{font-size:4rem;animation:bounce .8s infinite alternate}
 @keyframes bounce{to{transform:translateY(-12px)}}
 .sign{background:#fff4cf;color:#2b1b12;border-radius:18px;padding:16px;margin:12px 0;font-weight:900}
-.secretFloat{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);font-weight:900;font-size:.95rem;color:#ffd6e7;text-shadow:0 0 12px white;z-index:4}
-.confetti{position:fixed;top:-20px;font-size:22px;animation:fall 3s linear forwards;z-index:99}
-@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
-@media(max-width:480px){h1{font-size:1.7rem}h2{font-size:1.2rem}.big{font-size:1.35rem}.stamp{font-size:1.1rem}p{font-size:.92rem}button{font-size:.9rem;padding:12px 17px}}
+@media(max-width:480px){h1{font-size:1.65rem}h2{font-size:1.2rem}.big{font-size:1.3rem}p{font-size:.92rem}button{font-size:.9rem;padding:12px 17px}.stamp{font-size:1.1rem}}
 </style>
 </head>
 <body>
 
-<div id="floating"></div>
-<div class="secretFloat">❤️ Every love song somehow reminds me of you ❤️</div>
+<div id="float"></div>
+<div class="secret">❤️ Every love song somehow reminds me of you ❤️</div>
 
-<section class="slide red active">
-<div class="card">
-<h1>🚨 WARNING 🚨</h1>
+<section class="slide old active"><div class="card">
+<h1 class="warn">🚨 WARNING 🚨</h1>
 <p>This website is only for Sofia ❤️</p>
 <p>If you are not Sofia, please leave now.</p>
 <p>If you are Sofia… you may continue.</p>
 <button onclick="next()">Continue ❤️</button>
-</div>
-</section>
+</div></section>
 
-<section class="slide pink">
-<div class="card">
+<section class="slide old"><div class="card">
 <h1>🔒 Website Locked</h1>
 <p>✅ Give Udday a kiss when you see him</p>
 <p>✅ Enter the magic words</p>
-<input id="magic" placeholder="Enter the magic words...">
+<input id="magic" placeholder="Enter the magic words">
 <br><button onclick="unlock()">Unlock Website ❤️</button>
 <p id="lockmsg"></p>
-</div>
-</section>
+</div></section>
 
-<section class="slide red">
-<div class="card">
-<h1>🚨 WARNING 🚨</h1>
+<section class="slide old"><div class="card">
+<h1 class="warn">🚨 WARNING 🚨</h1>
 <p>Before entering this website, please be aware:</p>
 <p>❤️ Contains excessive amounts of cuteness</p>
 <p>❤️ May cause unexpected smiling</p>
@@ -83,12 +75,10 @@ input{width:90%;max-width:380px;padding:14px;border-radius:999px;border:2px soli
 <p>❤️ Proceeding means you accept unlimited hugs and affection</p>
 <p><b>This website was made especially for Sofi ❤️</b></p>
 <button onclick="next()">Proceed Anyway ❤️</button>
-</div>
-</section>
+</div></section>
 
-<section class="slide story">
-<div class="card">
-<h1>Our Story Started Here ❤️</h1>
+<section class="slide story"><div class="card">
+<h1 class="love">Our Story Started Here ❤️</h1>
 <p><b>Spanish:</b><br>Desde ese día, todo se volvió especial ❤️</p>
 <p><b>Punjabi:</b><br>ਉਸ ਦਿਨ ਤੋਂ ਸਭ ਕੁਝ ਖਾਸ ਹੋ ਗਿਆ ❤️</p>
 <p><b>English:</b><br>From that day on, everything became special ✨</p>
@@ -101,26 +91,20 @@ input{width:90%;max-width:380px;padding:14px;border-radius:999px;border:2px soli
 </div>
 <button onclick="showMem()">You and Me Memories 📸</button>
 <div id="mem" class="hidden gallery"><img src="./0.jpg"></div>
-<button onclick="document.getElementById('sec').classList.remove('hidden')">A Little Secret ❤️</button>
+<button onclick="sec.classList.remove('hidden')">A Little Secret ❤️</button>
 <p id="sec" class="hidden">Out of all the people in the world, I'm really glad I met you ❤️</p>
 <p>And this is only the beginning... ✨</p>
 <button onclick="next()">Next ❤️</button>
-</div>
-</section>
+</div></section>
 
-<section class="slide pink">
-<div class="card"><div id="q"></div></div>
-</section>
+<section class="slide old"><div class="card"><div id="q"></div></div></section>
 
-<section class="slide pink" id="formSlide">
-<div class="card">
+<section class="slide old" id="formSlide"><div class="card">
 <div class="stamp">Official Girlfriend Renewal Form™ ❤️</div>
 <div id="form"></div>
-</div>
-</section>
+</div></section>
 
-<section class="slide red">
-<div class="card">
+<section class="slide red"><div class="card">
 <h1>🎉 APPLICATION APPROVED ❤️</h1>
 <p>Congratulations Sofia,</p>
 <p>Your Girlfriend Licence has been successfully renewed.</p>
@@ -133,11 +117,9 @@ input{width:90%;max-width:380px;padding:14px;border-radius:999px;border:2px soli
 <p>💌 Unlimited annoying messages from Udday</p>
 <button onclick="next()">Continue ❤️</button>
 </div>
-</div>
-</section>
+</div></section>
 
-<section class="slide red">
-<div class="card">
+<section class="slide old"><div class="card">
 <h1>❤️ One More Thing...</h1>
 <p>Before you continue...</p>
 <p>There is something important I wanted to ask you.</p>
@@ -145,38 +127,28 @@ input{width:90%;max-width:380px;padding:14px;border-radius:999px;border:2px soli
 <p>Not another test.</p>
 <p>Just something I've been thinking about ❤️</p>
 <button onclick="next()">Continue ❤️</button>
-</div>
-</section>
+</div></section>
 
-<section class="slide red">
-<div class="card">
+<section class="slide red"><div class="card">
 <h1>🚨 BOYFRIEND EMERGENCY 🚨</h1>
 <p>According to official boyfriend records,</p>
 <p>it has been 100 years since our last adventure together...</p>
 <p>Udday has survived on memories alone. 😭❤️</p>
 <p>This situation requires immediate attention.</p>
 <button onclick="next()">Continue ❤️</button>
-</div>
-</section>
+</div></section>
 
-<section class="slide red">
-<div class="card">
+<section class="slide old"><div class="card">
 <h1>📅 Saturday Proposal</h1>
-<p>After reviewing:</p>
-<p>❤️ Sofia reports</p>
-<p>❤️ Udday reports</p>
-<p>❤️ Happiness reports</p>
-<p>The committee has reached a decision...</p>
+<p>After reviewing Sofia reports, Udday reports, and happiness reports...</p>
 <h2>We should go on a date this Saturday ❤️</h2>
 <div class="bear">🐻</div>
 <div class="sign">I think you should go ❤️<br>or...<br>I'm using my<br><span class="big">ONE WISH WILLOW...</span></div>
 <button onclick="next()">Yes ❤️</button>
 <button onclick="next()">Definitely Yes ❤️</button>
-</div>
-</section>
+</div></section>
 
-<section class="slide pink">
-<div class="card">
+<section class="slide old"><div class="card">
 <h1>❤️ Saturday Plans ❤️</h1>
 <p>Possible activities may include:</p>
 <p>🍔 Food</p>
@@ -188,11 +160,9 @@ input{width:90%;max-width:380px;padding:14px;border-radius:999px;border:2px soli
 <p>📸 Making new memories</p>
 <p>Sounds like a pretty good Saturday to me ❤️</p>
 <button onclick="next()">Continue ❤️</button>
-</div>
-</section>
+</div></section>
 
-<section class="slide red">
-<div class="card" id="lastCard">
+<section class="slide red"><div class="card" id="lastCard">
 <h1>🎉 DATE CONFIRMED 🎉</h1>
 <p>Saturday has officially become 100% better ❤️</p>
 <p>Please report to your assigned boyfriend at the scheduled time.</p>
@@ -207,113 +177,166 @@ input{width:90%;max-width:380px;padding:14px;border-radius:999px;border:2px soli
 <p>😘 One Kiss</p>
 <p>❤️ One Date With Udday</p>
 <button onclick="finalPopup()">Final Report 🐱🐻</button>
-</div>
-</section>
+</div></section>
 
-<div class="popup" id="catPop">
-<div class="popupCard">
+<div class="popup" id="catPop"><div class="popcard">
 <div class="cat">🐱</div>
 <h2>Hey Cutie...</h2>
 <p>I was paid exactly 3 treats 🍗🍗🍗</p>
 <p>to inform you that the answer is Sofia ❤️</p>
 <p>This message has been approved by Udday.</p>
-<button onclick="closeCat()">Got It 🐱</button>
-</div>
-</div>
+<button onclick="catPop.classList.remove('show')">Got It 🐱</button>
+</div></div>
 
-<div class="popup" id="miniPop">
-<div class="popupCard" id="miniText"></div>
-</div>
+<div class="popup" id="miniPop"><div class="popcard" id="miniText"></div></div>
 
 <script>
 let i=0;
 const slides=document.querySelectorAll('.slide');
+const q=document.getElementById('q');
+const form=document.getElementById('form');
+const formSlide=document.getElementById('formSlide');
+
 function next(){
-slides[i].classList.remove('active');i++;slides[i].classList.add('active');window.scrollTo(0,0);
-if(i===4)q1();
-if(i===5)f1();
-if(i===6)confetti();
+  if(i>=slides.length-1)return;
+  slides[i].classList.remove('active');
+  i++;
+  slides[i].classList.add('active');
+  window.scrollTo(0,0);
+  if(i===4) q1();
+  if(i===5) f1();
 }
+
 function unlock(){
-let v=document.getElementById('magic').value.trim().toLowerCase();
-let msg=document.getElementById('lockmsg');
-if(v==="i love you udday"||v==="i love you udday ❤️"){msg.innerHTML="⏳ Verifying...<br>Checking answer...";setTimeout(()=>{msg.innerHTML="✅ ACCESS GRANTED ❤️";confetti();setTimeout(next,1200)},1200)}
-else msg.innerHTML="❌ Access Denied<br>Those aren't the magic words ❤️";
+  let v=magic.value.trim().toLowerCase();
+  if(v==="i love you udday"||v==="i love you udday ❤️"){
+    lockmsg.innerHTML="⏳ Verifying...<br>Checking answer...";
+    setTimeout(()=>{lockmsg.innerHTML="✅ ACCESS GRANTED ❤️";setTimeout(next,900)},1000);
+  }else lockmsg.innerHTML="❌ Access Denied<br>Those aren't the magic words ❤️";
 }
-function showMem(){document.getElementById('mem').classList.toggle('hidden')}
-setInterval(()=>{let a=['❤️','✨','💖','⭐','💕','🎵'];let x=document.createElement('span');x.className='float';x.innerText=a[Math.floor(Math.random()*a.length)];x.style.left=Math.random()*100+'vw';x.style.animationDuration=(5+Math.random()*5)+'s';document.getElementById('floating').appendChild(x);setTimeout(()=>x.remove(),9000)},420);
+
+function showMem(){mem.classList.toggle('hidden')}
+
+setInterval(()=>{
+  let a=['❤️','✨','💖','⭐','💕','🎵'];
+  let x=document.createElement('span');
+  x.className='float';
+  x.innerText=a[Math.floor(Math.random()*a.length)];
+  x.style.left=Math.random()*100+'vw';
+  x.style.animationDuration=(5+Math.random()*5)+'s';
+  float.appendChild(x);
+  setTimeout(()=>x.remove(),9000);
+},420);
+
 function timer(){
-let start=new Date('2026-04-30T00:00:00'),now=new Date(),diff=now-start;
-document.getElementById('d').innerText=Math.floor(diff/86400000);diff%=86400000;
-document.getElementById('h').innerText=Math.floor(diff/3600000);diff%=3600000;
-document.getElementById('m').innerText=Math.floor(diff/60000);diff%=60000;
-document.getElementById('s').innerText=Math.floor(diff/1000);
+  let start=new Date('2026-04-30T00:00:00'), now=new Date(), diff=now-start;
+  d.innerText=Math.floor(diff/86400000); diff%=86400000;
+  h.innerText=Math.floor(diff/3600000); diff%=3600000;
+  m.innerText=Math.floor(diff/60000); diff%=60000;
+  s.innerText=Math.floor(diff/1000);
 }
 setInterval(timer,1000);timer();
 
-const q=document.getElementById('q');
-function q1(){q.innerHTML=`<h1>Quick Questions</h1><h2>Who's the cutest one?</h2><button onclick="wrongCute()">CHOFI</button><button onclick="wrongCute()">SOFI</button>`}
-function wrongCute(){q.innerHTML=`<h1>❌ Wrong Answer</h1><h2>Who's the cutest one?</h2><p>Hmmm... I think you clicked too fast.</p><button onclick="q1()">Try Again ❤️</button>`;slides[i].className='slide darkred active'}
-function rightCute(){}
+function q1(){
+  slides[i].className='slide old active';
+  q.innerHTML=`<h1>Quick Questions</h1><h2>Who's the cutest one?</h2><button onclick="wrongCute()">CHOFI</button><button onclick="q2()">SOFI</button>`;
+}
+
+function wrongCute(){
+  slides[i].className='slide dark active';
+  q.innerHTML=`<h1>❌ Wrong Answer</h1><h2>Who's the cutest one?</h2><p>Hmmm... I think you clicked too fast.</p><button onclick="q1()">Try Again ❤️</button>`;
+}
 
 function q2(){
-slides[i].className='slide red active';
-q.innerHTML=`
-<h1>❤️ Important Discovery ❤️</h1>
-<h2>How beautiful is Sofia?</h2>
-<button disabled>Beautiful</button><button disabled>Sooo Beautiful</button>
-<p>Wait...</p>
-<p>You don't actually have to answer this one.</p>
-<p>Udday already did ❤️</p>
-<p>After careful research,<br>many observations,<br>deep studies,<br>countless hours of analysis,<br>several scientific calculations,<br>and a completely unbiased investigation...</p>
-<p>I have come to the conclusion that:</p>
-<p class="big">❤️ Sofia is unbelievably beautiful ❤️</p>
-<p class="big">🌹 She is more beautiful than red roses 🌹</p>
-<button onclick="bearLove()">Next Question ❤️</button>`;
+  slides[i].className='slide red active';
+  q.innerHTML=`
+  <h1>❤️ Important Discovery ❤️</h1>
+  <h2>How beautiful is Sofia?</h2>
+  <button disabled>Beautiful</button><button disabled>Sooo Beautiful</button>
+  <p>Wait...</p><p>You don't actually have to answer this one.</p><p>Udday already did ❤️</p>
+  <p>After careful research,<br>many observations,<br>deep studies,<br>countless hours of analysis,<br>several scientific calculations,<br>and a completely unbiased investigation...</p>
+  <p>I have come to the conclusion that:</p>
+  <p class="big">❤️ Sofia is unbelievably beautiful ❤️</p>
+  <p class="big">🌹 She is more beautiful than red roses 🌹</p>
+  <button onclick="bearLove()">Next Question ❤️</button>`;
 }
+
 function bearLove(){
-q.innerHTML=`
-<div class="bear">🐻</div>
-<div class="sign">I told you he loves Sofia ❤️</div>
-<div class="bear">🐻</div>
-<div class="sign">Yeah... we noticed 😭</div>`;
-setTimeout(q3,2600);
+  q.innerHTML=`<div class="bear">🐻</div><div class="sign">I told you he loves Sofia ❤️</div><div class="bear">🐻</div><div class="sign">Yeah... we noticed 😭</div>`;
+  setTimeout(q3,2600);
 }
+
 function q3(){
-slides[i].className='slide pink active';
-q.innerHTML=`<div class="badge">🎲 Random Question</div><h1>Quick Questions</h1><h2>Who likes Bear more in the movie?</h2><button onclick="bearAns()">Sofia</button><button onmouseover="move(this)" ontouchstart="move(this)">Udday</button>`;
+  slides[i].className='slide old active';
+  q.innerHTML=`<div class="badge">🎲 Random Question</div><h1>Quick Questions</h1><h2>Who likes Bear more in the movie?</h2><button onclick="bearAns()">Sofia</button><button onmouseover="move(this)" ontouchstart="move(this)">Udday</button>`;
 }
+
 function bearAns(){
-q.innerHTML=`<h1>Quick Questions</h1><h2>You said Bear was an idiot...</h2><p>and now you like him. WOOOOW.</p><img class="gif" src="https://media.giphy.com/media/3kzJvEciJa94SMW3hN/giphy.gif"><button onclick="q4Start()">Next Question ❤️</button>`;
+  q.innerHTML=`<h1>Quick Questions</h1><h2>You said Bear was an idiot...</h2><p>and now you like him. WOOOOW.</p><img class="gif" src="https://media.giphy.com/media/3kzJvEciJa94SMW3hN/giphy.gif"><button onclick="q4Start()">Next Question ❤️</button>`;
 }
+
 function q4Start(){
-q.innerHTML=`<h1>Quick Questions</h1><h2>Who's smarter?</h2><button onclick="smartWrong()">Udday</button><button onmouseover="move(this)" ontouchstart="move(this)">Sofia</button>`;
-document.getElementById('catPop').classList.add('show');
+  q.innerHTML=`<h1>Quick Questions</h1><h2>Who's smarter?</h2><button onclick="smartWrong()">Udday</button><button onmouseover="move(this)" ontouchstart="move(this)">Sofia</button>`;
+  catPop.classList.add('show');
 }
-function closeCat(){document.getElementById('catPop').classList.remove('show')}
+
 function smartWrong(){
-showMini(`<div class="cat">🐱</div><h2>I told you the answer...</h2><p>why didn't you click Sofia? 😭</p>`,1600,()=>showMini(`<div class="bear">🐻</div><div class="sign">I told you he was biased while making this website ❤️</div>`,1800,smartFinal));
+  showMini(`<div class="cat">🐱</div><h2>I told you the answer...</h2><p>why didn't you click Sofia? 😭</p>`,1600,()=>showMini(`<div class="bear">🐻</div><div class="sign">I told you he was biased while making this website ❤️</div>`,1800,smartFinal));
 }
+
 function smartFinal(){
-q.innerHTML=`<h1>Good Choice ❤️</h1><h2>Wooow, I knew you'd choose Udday.</h2><img class="gif" src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif"><button onclick="next()">Continue ❤️</button>`;
+  q.innerHTML=`<h1>Good Choice ❤️</h1><h2>Wooow, I knew you'd choose Udday.</h2><img class="gif" src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif"><button onclick="next()">Continue ❤️</button>`;
 }
-function showMini(html,time,cb){let p=document.getElementById('miniPop');document.getElementById('miniText').innerHTML=html;p.classList.add('show');setTimeout(()=>{p.classList.remove('show');if(cb)cb()},time)}
-function move(b){b.style.position='relative';b.style.left=(Math.random()*180-90)+'px';b.style.top=(Math.random()*120-60)+'px'}
 
-const form=document.getElementById('form'),formSlide=document.getElementById('formSlide');
-function f1(){formSlide.className='slide pink active';form.innerHTML=`<h2>Do you like Udday?</h2><button onmouseover="move(this)" ontouchstart="move(this)">Yes ❤️</button><button onclick="fNo()">No 😭</button>`}
-function fNo(){formSlide.className='slide darkred active';form.innerHTML=`<h2>Are you sure about that? 💔</h2><p>Udday.exe has stopped smiling...</p><img class="gif" src="https://media.giphy.com/media/OPU6wzx8JrHna/giphy.gif"><p>Boyfriend happiness has dropped to 0%</p><button onclick="f2()">Try Again ❤️</button>`}
-function f2(){formSlide.className='slide pink active';form.innerHTML=`<h2>Okay, let's try that again.</h2><button onclick="fYes('Good choice ❤️')">Yes ❤️</button><button onclick="fYes('That\\'s the right answer ❤️')">Definitely Yes ❤️</button>`}
-function fYes(t){form.innerHTML=`<h2>${t}</h2><p>Application accepted successfully ✨</p><img class="gif" src="https://media.giphy.com/media/111ebonMs90YLu/giphy.gif"><button onclick="f3()">Next ❤️</button>`}
-function f3(){form.innerHTML=`<h2>Would you like to continue being Udday's girlfriend?</h2><button onclick="fDone()">Yes ❤️</button><button disabled>There is no other choice</button>`}
-function fDone(){form.innerHTML=`<h2>Application accepted ❤️</h2><button onclick="next()">Continue ❤️</button>`}
+function showMini(html,time,cb){
+  miniText.innerHTML=html;
+  miniPop.classList.add('show');
+  setTimeout(()=>{miniPop.classList.remove('show'); if(cb)cb()},time);
+}
 
-function claim(){document.getElementById('reward').classList.remove('hidden');confetti()}
+function move(b){
+  b.style.position='relative';
+  b.style.left=(Math.random()*180-90)+'px';
+  b.style.top=(Math.random()*120-60)+'px';
+}
+
+function f1(){
+  formSlide.className='slide old active';
+  form.innerHTML=`<h2>Do you like Udday?</h2><button onmouseover="move(this)" ontouchstart="move(this)">Yes ❤️</button><button onclick="fNo()">No 😭</button>`;
+}
+
+function fNo(){
+  formSlide.className='slide dark active';
+  form.innerHTML=`<h2>Are you sure about that? 💔</h2><p>Udday.exe has stopped smiling...</p><img class="gif" src="https://media.giphy.com/media/OPU6wzx8JrHna/giphy.gif"><p>Boyfriend happiness has dropped to 0%</p><button onclick="f2()">Try Again ❤️</button>`;
+}
+
+function f2(){
+  formSlide.className='slide old active';
+  form.innerHTML=`<h2>Okay, let's try that again.</h2><button onclick="fYes('Good choice ❤️')">Yes ❤️</button><button onclick="fYes('That\\'s the right answer ❤️')">Definitely Yes ❤️</button>`;
+}
+
+function fYes(t){
+  form.innerHTML=`<h2>${t}</h2><p>Application accepted successfully ✨</p><img class="gif" src="https://media.giphy.com/media/111ebonMs90YLu/giphy.gif"><button onclick="f3()">Next ❤️</button>`;
+}
+
+function f3(){
+  form.innerHTML=`<h2>Would you like to continue being Udday's girlfriend?</h2><button onclick="fDone()">Yes ❤️</button><button disabled>There is no other choice</button>`;
+}
+
+function fDone(){
+  form.innerHTML=`<h2>Application accepted ❤️</h2><button onclick="next()">Continue ❤️</button>`;
+}
+
+function claim(){reward.classList.remove('hidden')}
+
 function finalPopup(){
-showMini(`<div class="cat">🐱</div><div class="bear">🐻</div><h2>Enjoy your date ❤️</h2><p>Cat and Bear approved this message.</p><button onclick="endSite()">END ❤️</button>`,999999);
+  showMini(`<div class="cat">🐱</div><div class="bear">🐻</div><h2>Enjoy your date ❤️</h2><p>Cat and Bear approved this message.</p><button onclick="endSite()">END ❤️</button>`,999999);
 }
-function endSite(){document.getElementById('miniPop').classList.remove('show');document.getElementById('lastCard').innerHTML=`<h1>❤️ The End ❤️</h1><p>Thank you for visiting.</p><p>Now go enjoy your date.</p><h2>Sofi & Udday ❤️</h2><p>Every love song somehow reminds me of you ❤️</p>`}
-function confetti(){for(let n=0;n<45;n++){let p=document.createElement('span');p.className='confetti';p.innerText=['🎉','❤️','✨','💖'][Math.floor(Math.random()*4)];p.style.left=Math.random()*100+'vw';p.style.animationDuration=(2+Math.random()*2)+'s';document.body.appendChild(p);setTimeout(()=>p.remove(),4000)}}
+
+function endSite(){
+  miniPop.classList.remove('show');
+  lastCard.innerHTML=`<h1>❤️ The End ❤️</h1><p>Thank you for visiting.</p><p>Now go enjoy your date.</p><h2>Sofi & Udday ❤️</h2><p>Every love song somehow reminds me of you ❤️</p>`;
+}
 </script>
 </body>
 </html>
