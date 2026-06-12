@@ -4,120 +4,85 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sofia & Udday ❤️</title>
-
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap');
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
-body{overflow-x:hidden;overflow-y:auto;background:#120018;color:white}
-.slide{display:none;min-height:100vh;width:100%;padding:35px 16px;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden}
-.slide.active{display:flex;animation:fadeIn .8s ease}
-@keyframes fadeIn{from{opacity:0;transform:scale(.98)}to{opacity:1;transform:scale(1)}}
-
-.card{width:min(94%,620px);padding:30px 24px;border-radius:30px;background:rgba(255,255,255,.15);backdrop-filter:blur(16px);box-shadow:0 0 40px rgba(255,91,173,.45);z-index:5}
-h1{font-size:2.2rem;margin-bottom:16px;text-shadow:0 0 16px rgba(255,255,255,.5)}
-h2{font-size:1.55rem;margin-bottom:18px}
-p{font-size:1rem;margin:10px 0;line-height:1.55}
-button{border:none;padding:13px 22px;border-radius:999px;margin:10px;font-size:1rem;font-weight:800;cursor:pointer;color:white;background:linear-gradient(135deg,#ff4fa3,#ff7b7b);box-shadow:0 0 20px rgba(255,85,160,.6);transition:.25s}
+body{background:#120009;color:white;overflow-x:hidden}
+.slide{display:none;min-height:100vh;width:100%;padding:35px 15px;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden}
+.slide.active{display:flex;animation:fade .6s ease}
+@keyframes fade{from{opacity:0;transform:scale(.98)}to{opacity:1;transform:scale(1)}}
+@keyframes glow{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
+.red{background:linear-gradient(135deg,#ff1744,#8b0000,#ff4d6d,#2b0000);background-size:400% 400%;animation:glow 8s ease infinite}
+.pink{background:linear-gradient(135deg,#240046,#ff006e,#3a0ca3)}
+.darkred{background:radial-gradient(circle,#5b001f,#130007 75%)}
+.story{background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url('./0.jpg');background-size:cover;background-position:center}
+.card{width:min(94%,700px);padding:32px 24px;border-radius:34px;background:rgba(255,255,255,.13);backdrop-filter:blur(18px);box-shadow:0 0 45px rgba(255,80,130,.55);position:relative;z-index:5}
+h1{font-size:2.3rem;font-weight:900;margin-bottom:16px;text-shadow:0 0 18px rgba(255,255,255,.35)}
+h2{font-size:1.55rem;font-weight:850;margin:15px 0}
+p{font-size:1rem;line-height:1.55;margin:9px 0}
+button{border:0;border-radius:999px;padding:13px 24px;margin:10px;background:linear-gradient(135deg,#ff3f8f,#ff7b7b);color:white;font-weight:900;font-size:1rem;cursor:pointer;box-shadow:0 0 20px rgba(255,70,140,.6);transition:.25s}
 button:hover{transform:scale(1.06)}
-button:disabled{opacity:.45;cursor:not-allowed;box-shadow:none}
-
-.warning{background:radial-gradient(circle,#740000,#190000 72%)}
-.locked{background:linear-gradient(135deg,#17002b,#630063,#ff4f88)}
-.risk{background:linear-gradient(135deg,#2a003f,#ff4f93,#3a0ca3)}
-.story{background:linear-gradient(rgba(0,0,0,.48),rgba(0,0,0,.48)),url('bg.jpg');background-size:cover;background-position:center;background-repeat:no-repeat}
-.questions{background:linear-gradient(135deg,#240046,#ff006e,#3a0ca3)}
-.form{background:linear-gradient(135deg,#1a2a6c,#b21f1f,#fdbb2d)}
-.final{background:linear-gradient(135deg,#ff4f81,#7b2ff7,#f107a3)}
-.dateRed{background:radial-gradient(circle,#9b0000,#290000 70%)}
-
-.floating{position:fixed;font-size:23px;animation:floatUp 8s linear infinite;opacity:.8;z-index:1;pointer-events:none}
-@keyframes floatUp{from{transform:translateY(110vh) rotate(0);opacity:0}20%{opacity:1}to{transform:translateY(-20vh) rotate(360deg);opacity:0}}
-
+button:disabled{opacity:.45;cursor:not-allowed}
+input{width:90%;max-width:380px;padding:14px;border-radius:999px;border:2px solid rgba(255,255,255,.5);text-align:center;font-size:1rem;margin:12px}
+.float{position:fixed;font-size:24px;animation:float 8s linear infinite;pointer-events:none;z-index:1}
+@keyframes float{from{transform:translateY(110vh) rotate(0);opacity:0}20%{opacity:1}to{transform:translateY(-20vh) rotate(360deg);opacity:0}}
 .timer{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:18px 0}
-.timeBox{background:rgba(255,255,255,.22);border-radius:18px;padding:12px 5px}
-.timeBox strong{font-size:1.25rem;display:block}
-
-.photoGallery img{width:100%;border-radius:18px;margin-top:15px;box-shadow:0 0 20px rgba(255,255,255,.35)}
-.gifBox img,.smallGif{width:220px;max-width:80%;border-radius:18px;margin-top:18px}
+.box{background:rgba(255,255,255,.25);padding:12px 5px;border-radius:18px}
+.box strong{display:block;font-size:1.25rem}
 .hidden{display:none}
-
-.stamp{
-display:inline-block;
-border:3px dashed gold;
-padding:12px 18px;
-border-radius:18px;
-margin-bottom:20px;
-color:#fff7b2;
-font-size:1.65rem;
-font-weight:900;
-line-height:1.2;
-}
-
-.hint{font-size:.9rem;opacity:.9;margin-top:12px}
-.sad{background:linear-gradient(135deg,#230026,#5c001c,#16000d)}
-.sad .card{box-shadow:0 0 45px rgba(255,0,80,.4)}
-.confetti{position:fixed;top:-20px;font-size:22px;animation:fall 3s linear forwards;z-index:999;pointer-events:none}
+.gallery img{width:100%;border-radius:20px;margin-top:15px;box-shadow:0 0 25px rgba(255,255,255,.4)}
+.gif{width:250px;max-width:85%;border-radius:20px;margin:18px auto;display:block}
+.big{font-size:1.9rem;font-weight:900;text-shadow:0 0 18px rgba(255,255,255,.35)}
+.stamp{display:inline-block;border:3px dashed gold;padding:13px 20px;border-radius:18px;margin-bottom:22px;color:#fff7b2;font-size:1.65rem;font-weight:900}
+.badge{position:absolute;top:18px;left:18px;padding:8px 14px;border-radius:20px;background:rgba(255,255,255,.17);font-size:.8rem;font-weight:800}
+.popup{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;z-index:50;padding:20px}
+.popup.show{display:flex}
+.popupCard{background:rgba(255,255,255,.18);backdrop-filter:blur(18px);border-radius:30px;padding:28px;max-width:520px;box-shadow:0 0 45px rgba(255,80,130,.7)}
+.bear,.cat{font-size:4rem;animation:bounce .8s infinite alternate}
+@keyframes bounce{to{transform:translateY(-12px)}}
+.sign{background:#fff4cf;color:#2b1b12;border-radius:18px;padding:16px;margin:12px 0;font-weight:900}
+.secretFloat{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);font-weight:900;font-size:.95rem;color:#ffd6e7;text-shadow:0 0 12px white;z-index:4}
+.confetti{position:fixed;top:-20px;font-size:22px;animation:fall 3s linear forwards;z-index:99}
 @keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
-
-input{
-width:90%;
-max-width:380px;
-padding:14px 18px;
-border-radius:999px;
-border:2px solid rgba(255,255,255,.45);
-outline:none;
-font-size:1rem;
-text-align:center;
-margin:12px 0;
-}
-
-@media(max-width:480px){
-h1{font-size:1.75rem}
-h2{font-size:1.25rem}
-p{font-size:.95rem}
-button{font-size:.93rem;padding:12px 18px}
-.stamp{font-size:1.2rem}
-}
+@media(max-width:480px){h1{font-size:1.7rem}h2{font-size:1.2rem}.big{font-size:1.35rem}.stamp{font-size:1.1rem}p{font-size:.92rem}button{font-size:.9rem;padding:12px 17px}}
 </style>
 </head>
-
 <body>
-<div id="hearts"></div>
 
-<section class="slide warning active">
+<div id="floating"></div>
+<div class="secretFloat">❤️ Every love song somehow reminds me of you ❤️</div>
+
+<section class="slide red active">
 <div class="card">
-<h1>⚠️ WARNING ⚠️</h1>
+<h1>🚨 WARNING 🚨</h1>
 <p>This website is only for Sofia ❤️</p>
 <p>If you are not Sofia, please leave now.</p>
 <p>If you are Sofia… you may continue.</p>
-<button onclick="nextSlide()">Continue ❤️</button>
+<button onclick="next()">Continue ❤️</button>
 </div>
 </section>
 
-<section class="slide locked">
-<div class="card" id="lockCard">
+<section class="slide pink">
+<div class="card">
 <h1>🔒 Website Locked</h1>
-<p>To continue, please complete the requirements below:</p>
 <p>✅ Give Udday a kiss when you see him</p>
 <p>✅ Enter the magic words</p>
-<input id="magicInput" placeholder="Enter the magic words..." />
-<br>
-<button onclick="checkMagic()">Unlock Website ❤️</button>
-<p id="lockMsg"></p>
+<input id="magic" placeholder="Enter the magic words...">
+<br><button onclick="unlock()">Unlock Website ❤️</button>
+<p id="lockmsg"></p>
 </div>
 </section>
 
-<section class="slide risk">
+<section class="slide red">
 <div class="card">
-<h1>⚠️ WARNING ⚠️</h1>
+<h1>🚨 WARNING 🚨</h1>
 <p>Before entering this website, please be aware:</p>
 <p>❤️ Contains excessive amounts of cuteness</p>
 <p>❤️ May cause unexpected smiling</p>
 <p>❤️ You might end up missing Udday a little more</p>
 <p>❤️ Proceeding means you accept unlimited hugs and affection</p>
 <p><b>This website was made especially for Sofi ❤️</b></p>
-<button onclick="nextSlide()">Proceed Anyway ❤️</button>
+<button onclick="next()">Proceed Anyway ❤️</button>
 </div>
 </section>
 
@@ -127,62 +92,51 @@ button{font-size:.93rem;padding:12px 18px}
 <p><b>Spanish:</b><br>Desde ese día, todo se volvió especial ❤️</p>
 <p><b>Punjabi:</b><br>ਉਸ ਦਿਨ ਤੋਂ ਸਭ ਕੁਝ ਖਾਸ ਹੋ ਗਿਆ ❤️</p>
 <p><b>English:</b><br>From that day on, everything became special ✨</p>
-
 <h2>Time since we first met ❤️</h2>
 <div class="timer">
-<div class="timeBox"><strong id="days">0</strong>Days</div>
-<div class="timeBox"><strong id="hours">0</strong>Hours</div>
-<div class="timeBox"><strong id="minutes">0</strong>Minutes</div>
-<div class="timeBox"><strong id="seconds">0</strong>Seconds</div>
+<div class="box"><strong id="d">0</strong>Days</div>
+<div class="box"><strong id="h">0</strong>Hours</div>
+<div class="box"><strong id="m">0</strong>Minutes</div>
+<div class="box"><strong id="s">0</strong>Seconds</div>
 </div>
-
-<button onclick="showMemories()">You and Me Memories 📸</button>
-<div id="memories" class="hidden photoGallery">
-<img src="photo1.jpg">
-<img src="photo2.jpg">
-<img src="photo3.jpg">
-</div>
-
-<button onclick="showSecret()">A Little Secret ❤️</button>
-<p id="secret" class="hidden">Out of all the people in the world, I'm really glad I met you ❤️</p>
+<button onclick="showMem()">You and Me Memories 📸</button>
+<div id="mem" class="hidden gallery"><img src="./0.jpg"></div>
+<button onclick="document.getElementById('sec').classList.remove('hidden')">A Little Secret ❤️</button>
+<p id="sec" class="hidden">Out of all the people in the world, I'm really glad I met you ❤️</p>
 <p>And this is only the beginning... ✨</p>
-<button onclick="nextSlide()">Next ❤️</button>
+<button onclick="next()">Next ❤️</button>
 </div>
 </section>
 
-<section class="slide questions">
-<div class="card">
-<div id="questionBox"></div>
-<div id="gifBox" class="gifBox"></div>
-</div>
+<section class="slide pink">
+<div class="card"><div id="q"></div></div>
 </section>
 
-<section class="slide form" id="formSlide">
+<section class="slide pink" id="formSlide">
 <div class="card">
 <div class="stamp">Official Girlfriend Renewal Form™ ❤️</div>
-<div id="formBox"></div>
+<div id="form"></div>
 </div>
 </section>
 
-<section class="slide final">
+<section class="slide red">
 <div class="card">
-<h1>APPLICATION APPROVED ❤️</h1>
+<h1>🎉 APPLICATION APPROVED ❤️</h1>
 <p>Congratulations Sofia,</p>
 <p>Your Girlfriend Licence has been successfully renewed.</p>
 <h2>Valid Until: Forever ♾️❤️</h2>
-<button onclick="claimReward()">Claim Reward 🎁</button>
-
+<button onclick="claim()">Claim Reward 🎁</button>
 <div id="reward" class="hidden">
 <h2>Reward Unlocked ❤️</h2>
 <p>🤗 1 Hug</p>
 <p>😘 1 Kiss</p>
 <p>💌 Unlimited annoying messages from Udday</p>
-<button onclick="nextSlide()">Continue ❤️</button>
+<button onclick="next()">Continue ❤️</button>
 </div>
 </div>
 </section>
 
-<section class="slide final">
+<section class="slide red">
 <div class="card">
 <h1>❤️ One More Thing...</h1>
 <p>Before you continue...</p>
@@ -190,21 +144,22 @@ button{font-size:.93rem;padding:12px 18px}
 <p>Not a trick question.</p>
 <p>Not another test.</p>
 <p>Just something I've been thinking about ❤️</p>
-<button onclick="nextSlide()">Continue ❤️</button>
+<button onclick="next()">Continue ❤️</button>
 </div>
 </section>
 
-<section class="slide final">
+<section class="slide red">
 <div class="card">
-<h1>✨ Small Announcement</h1>
+<h1>🚨 BOYFRIEND EMERGENCY 🚨</h1>
 <p>According to official boyfriend records,</p>
-<p>it has been far too long since our last adventure together.</p>
-<p>This situation requires immediate attention ❤️</p>
-<button onclick="nextSlide()">Continue ❤️</button>
+<p>it has been 100 years since our last adventure together...</p>
+<p>Udday has survived on memories alone. 😭❤️</p>
+<p>This situation requires immediate attention.</p>
+<button onclick="next()">Continue ❤️</button>
 </div>
 </section>
 
-<section class="slide final">
+<section class="slide red">
 <div class="card">
 <h1>📅 Saturday Proposal</h1>
 <p>After reviewing:</p>
@@ -213,263 +168,152 @@ button{font-size:.93rem;padding:12px 18px}
 <p>❤️ Happiness reports</p>
 <p>The committee has reached a decision...</p>
 <h2>We should go on a date this Saturday ❤️</h2>
-<button onclick="nextSlide()">Continue ❤️</button>
+<div class="bear">🐻</div>
+<div class="sign">I think you should go ❤️<br>or...<br>I'm using my<br><span class="big">ONE WISH WILLOW...</span></div>
+<button onclick="next()">Yes ❤️</button>
+<button onclick="next()">Definitely Yes ❤️</button>
 </div>
 </section>
 
-<section class="slide final">
+<section class="slide pink">
 <div class="card">
-<h1>Important Question ❤️</h1>
-<p>Would you like to spend Saturday with Udday?</p>
+<h1>❤️ Saturday Plans ❤️</h1>
 <p>Possible activities may include:</p>
-<p>🍟 Food</p>
+<p>🍔 Food</p>
+<p>🎳 Bowling</p>
+<p>🎬 Movie</p>
 <p>🚗 Little adventures</p>
 <p>🤗 Hugs</p>
 <p>😂 Laughing at stupid things</p>
-<button onclick="nextSlide()">Yes ❤️</button>
-<button onclick="nextSlide()">Of Course ❤️</button>
+<p>📸 Making new memories</p>
+<p>Sounds like a pretty good Saturday to me ❤️</p>
+<button onclick="next()">Continue ❤️</button>
 </div>
 </section>
 
-<section class="slide dateRed">
-<div class="card">
+<section class="slide red">
+<div class="card" id="lastCard">
 <h1>🎉 DATE CONFIRMED 🎉</h1>
 <p>Saturday has officially become 100% better ❤️</p>
 <p>Please report to your assigned boyfriend at the scheduled time.</p>
-
 <h2>Reward Added:</h2>
 <p>🌹 +1 Date</p>
 <p>❤️ +100 Happiness</p>
 <p>🥰 Unlimited Memories</p>
-
 <h2>💌 Final Message</h2>
 <p>Looking forward to spending Saturday with you, Sofi ❤️</p>
 <p>Now stop reading and come collect your rewards:</p>
 <p>🤗 One Hug</p>
 <p>😘 One Kiss</p>
 <p>❤️ One Date With Udday</p>
+<button onclick="finalPopup()">Final Report 🐱🐻</button>
 </div>
 </section>
 
+<div class="popup" id="catPop">
+<div class="popupCard">
+<div class="cat">🐱</div>
+<h2>Hey Cutie...</h2>
+<p>I was paid exactly 3 treats 🍗🍗🍗</p>
+<p>to inform you that the answer is Sofia ❤️</p>
+<p>This message has been approved by Udday.</p>
+<button onclick="closeCat()">Got It 🐱</button>
+</div>
+</div>
+
+<div class="popup" id="miniPop">
+<div class="popupCard" id="miniText"></div>
+</div>
+
 <script>
-let currentSlide=0;
+let i=0;
 const slides=document.querySelectorAll('.slide');
-
-function nextSlide(){
-slides[currentSlide].classList.remove('active');
-currentSlide++;
-slides[currentSlide].classList.add('active');
-window.scrollTo(0,0);
-if(currentSlide===4) loadQuestion1();
-if(currentSlide===5) loadForm1();
-if(currentSlide===6) confetti();
+function next(){
+slides[i].classList.remove('active');i++;slides[i].classList.add('active');window.scrollTo(0,0);
+if(i===4)q1();
+if(i===5)f1();
+if(i===6)confetti();
 }
-
-function showSecret(){document.getElementById('secret').classList.remove('hidden')}
-function showMemories(){document.getElementById('memories').classList.toggle('hidden')}
-
-function checkMagic(){
-const input=document.getElementById('magicInput').value.trim().toLowerCase();
-const msg=document.getElementById('lockMsg');
-if(input==="i love you udday" || input==="i love you udday ❤️"){
-msg.innerHTML="⏳ Verifying...<br>Checking answer...<br>Loading memories...";
-setTimeout(()=>{
-msg.innerHTML="✅ ACCESS GRANTED ❤️<br>Congratulations Sofi ❤️";
-confetti();
-setTimeout(nextSlide,1800);
-},1800);
-}else{
-msg.innerHTML="❌ Access Denied<br>Those aren't the magic words ❤️";
+function unlock(){
+let v=document.getElementById('magic').value.trim().toLowerCase();
+let msg=document.getElementById('lockmsg');
+if(v==="i love you udday"||v==="i love you udday ❤️"){msg.innerHTML="⏳ Verifying...<br>Checking answer...";setTimeout(()=>{msg.innerHTML="✅ ACCESS GRANTED ❤️";confetti();setTimeout(next,1200)},1200)}
+else msg.innerHTML="❌ Access Denied<br>Those aren't the magic words ❤️";
 }
+function showMem(){document.getElementById('mem').classList.toggle('hidden')}
+setInterval(()=>{let a=['❤️','✨','💖','⭐','💕','🎵'];let x=document.createElement('span');x.className='float';x.innerText=a[Math.floor(Math.random()*a.length)];x.style.left=Math.random()*100+'vw';x.style.animationDuration=(5+Math.random()*5)+'s';document.getElementById('floating').appendChild(x);setTimeout(()=>x.remove(),9000)},420);
+function timer(){
+let start=new Date('2026-04-30T00:00:00'),now=new Date(),diff=now-start;
+document.getElementById('d').innerText=Math.floor(diff/86400000);diff%=86400000;
+document.getElementById('h').innerText=Math.floor(diff/3600000);diff%=3600000;
+document.getElementById('m').innerText=Math.floor(diff/60000);diff%=60000;
+document.getElementById('s').innerText=Math.floor(diff/1000);
 }
+setInterval(timer,1000);timer();
 
-const hearts=document.getElementById('hearts');
-const symbols=['❤️','✨','💖','⭐','💕'];
-setInterval(()=>{
-const s=document.createElement('span');
-s.className='floating';
-s.innerText=symbols[Math.floor(Math.random()*symbols.length)];
-s.style.left=Math.random()*100+'vw';
-s.style.animationDuration=(5+Math.random()*5)+'s';
-hearts.appendChild(s);
-setTimeout(()=>s.remove(),9000);
-},450);
+const q=document.getElementById('q');
+function q1(){q.innerHTML=`<h1>Quick Questions</h1><h2>Who's the cutest one?</h2><button onclick="wrongCute()">CHOFI</button><button onclick="wrongCute()">SOFI</button>`}
+function wrongCute(){q.innerHTML=`<h1>❌ Wrong Answer</h1><h2>Who's the cutest one?</h2><p>Hmmm... I think you clicked too fast.</p><button onclick="q1()">Try Again ❤️</button>`;slides[i].className='slide darkred active'}
+function rightCute(){}
 
-function updateTimer(){
-const start=new Date('2026-04-30T00:00:00');
-const now=new Date();
-let diff=now-start;
-const days=Math.floor(diff/(1000*60*60*24));
-diff%=1000*60*60*24;
-const hours=Math.floor(diff/(1000*60*60));
-diff%=1000*60*60;
-const minutes=Math.floor(diff/(1000*60));
-diff%=1000*60;
-const seconds=Math.floor(diff/1000);
-document.getElementById('days').innerText=days;
-document.getElementById('hours').innerText=hours;
-document.getElementById('minutes').innerText=minutes;
-document.getElementById('seconds').innerText=seconds;
-}
-setInterval(updateTimer,1000);updateTimer();
-
-const questionBox=document.getElementById('questionBox');
-const gifBox=document.getElementById('gifBox');
-
-function loadQuestion1(){
-gifBox.innerHTML='';
-questionBox.innerHTML=`
-<h1>Quick Questions</h1>
-<h2>Who's the cutest one?</h2>
-<button onclick="wrongCute()">Chofi</button>
-<button onclick="wrongCute()">Chofi</button>`;
-}
-
-function wrongCute(){
-gifBox.innerHTML='';
-questionBox.innerHTML=`
-<h1>❌ Wrong Answer</h1>
-<h2>Who's the cutest one?</h2>
-<p>Hmm... are you sure about that?</p>
-<button onmouseover="moveButton(this)" ontouchstart="moveButton(this)">Chofi</button>
-<button onclick="rightCute()">Udday</button>
-<p class="hint">Hint: the answer might be Udday ❤️</p>`;
-}
-
-function rightCute(){
-confetti();
-questionBox.innerHTML=`
-<h1>Question 1 Complete ❤️</h1>
-<h2>Correct Answer ❤️</h2>
-<button onclick="loadQuestion2()">Next Question ❤️</button>`;
-gifBox.innerHTML='';
-}
-
-function loadQuestion2(){
-gifBox.innerHTML='';
-questionBox.innerHTML=`
-<h1>Quick Questions</h1>
+function q2(){
+slides[i].className='slide red active';
+q.innerHTML=`
+<h1>❤️ Important Discovery ❤️</h1>
 <h2>How beautiful is Sofia?</h2>
-<button disabled>Beautiful</button>
-<button disabled>Sooo Beautiful</button>
+<button disabled>Beautiful</button><button disabled>Sooo Beautiful</button>
 <p>Wait...</p>
 <p>You don't actually have to answer this one.</p>
 <p>Udday already did ❤️</p>
-<p>After careful research, I have come to the conclusion that:</p>
-<h2>Sofia is unbelievably beautiful ❤️</h2>
-<p>She is more beautiful than red roses 🌹</p>
-<button onclick="loadQuestion3()">Next Question ❤️</button>`;
+<p>After careful research,<br>many observations,<br>deep studies,<br>countless hours of analysis,<br>several scientific calculations,<br>and a completely unbiased investigation...</p>
+<p>I have come to the conclusion that:</p>
+<p class="big">❤️ Sofia is unbelievably beautiful ❤️</p>
+<p class="big">🌹 She is more beautiful than red roses 🌹</p>
+<button onclick="bearLove()">Next Question ❤️</button>`;
 }
-
-function loadQuestion3(){
-gifBox.innerHTML='';
-questionBox.innerHTML=`
-<h1>Quick Questions</h1>
-<h2>Who likes Bear more in the movie?</h2>
-<button onclick="bearAnswer()">Sofia</button>
-<button onmouseover="moveButton(this)" ontouchstart="moveButton(this)">Udday</button>`;
+function bearLove(){
+q.innerHTML=`
+<div class="bear">🐻</div>
+<div class="sign">I told you he loves Sofia ❤️</div>
+<div class="bear">🐻</div>
+<div class="sign">Yeah... we noticed 😭</div>`;
+setTimeout(q3,2600);
 }
-
-function bearAnswer(){
-questionBox.innerHTML=`
-<h1>Quick Questions</h1>
-<h2>You said Bear was an idiot...</h2>
-<p>and now you like him. WOOOOW.</p>
-<button onclick="loadQuestion4()">Next Question ❤️</button>`;
-gifBox.innerHTML=`<img src="https://media.giphy.com/media/3kzJvEciJa94SMW3hN/giphy.gif">`;
+function q3(){
+slides[i].className='slide pink active';
+q.innerHTML=`<div class="badge">🎲 Random Question</div><h1>Quick Questions</h1><h2>Who likes Bear more in the movie?</h2><button onclick="bearAns()">Sofia</button><button onmouseover="move(this)" ontouchstart="move(this)">Udday</button>`;
 }
-
-function loadQuestion4(){
-gifBox.innerHTML='';
-questionBox.innerHTML=`
-<h1>Quick Questions</h1>
-<h2>Who's smarter?</h2>
-<button onclick="smartFinal()">Udday</button>
-<button onmouseover="moveButton(this)" ontouchstart="moveButton(this)">Sofia</button>`;
+function bearAns(){
+q.innerHTML=`<h1>Quick Questions</h1><h2>You said Bear was an idiot...</h2><p>and now you like him. WOOOOW.</p><img class="gif" src="https://media.giphy.com/media/3kzJvEciJa94SMW3hN/giphy.gif"><button onclick="q4Start()">Next Question ❤️</button>`;
 }
-
+function q4Start(){
+q.innerHTML=`<h1>Quick Questions</h1><h2>Who's smarter?</h2><button onclick="smartWrong()">Udday</button><button onmouseover="move(this)" ontouchstart="move(this)">Sofia</button>`;
+document.getElementById('catPop').classList.add('show');
+}
+function closeCat(){document.getElementById('catPop').classList.remove('show')}
+function smartWrong(){
+showMini(`<div class="cat">🐱</div><h2>I told you the answer...</h2><p>why didn't you click Sofia? 😭</p>`,1600,()=>showMini(`<div class="bear">🐻</div><div class="sign">I told you he was biased while making this website ❤️</div>`,1800,smartFinal));
+}
 function smartFinal(){
-confetti();
-questionBox.innerHTML=`
-<h1>Good Choice ❤️</h1>
-<h2>Wooow, I knew you'd choose Udday.</h2>
-<button onclick="nextSlide()">Continue ❤️</button>`;
-gifBox.innerHTML='';
+q.innerHTML=`<h1>Good Choice ❤️</h1><h2>Wooow, I knew you'd choose Udday.</h2><img class="gif" src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif"><button onclick="next()">Continue ❤️</button>`;
 }
+function showMini(html,time,cb){let p=document.getElementById('miniPop');document.getElementById('miniText').innerHTML=html;p.classList.add('show');setTimeout(()=>{p.classList.remove('show');if(cb)cb()},time)}
+function move(b){b.style.position='relative';b.style.left=(Math.random()*180-90)+'px';b.style.top=(Math.random()*120-60)+'px'}
 
-function moveButton(btn){
-btn.style.position='relative';
-btn.style.left=(Math.random()*160-80)+'px';
-btn.style.top=(Math.random()*110-55)+'px';
-}
+const form=document.getElementById('form'),formSlide=document.getElementById('formSlide');
+function f1(){formSlide.className='slide pink active';form.innerHTML=`<h2>Do you like Udday?</h2><button onmouseover="move(this)" ontouchstart="move(this)">Yes ❤️</button><button onclick="fNo()">No 😭</button>`}
+function fNo(){formSlide.className='slide darkred active';form.innerHTML=`<h2>Are you sure about that? 💔</h2><p>Udday.exe has stopped smiling...</p><img class="gif" src="https://media.giphy.com/media/OPU6wzx8JrHna/giphy.gif"><p>Boyfriend happiness has dropped to 0%</p><button onclick="f2()">Try Again ❤️</button>`}
+function f2(){formSlide.className='slide pink active';form.innerHTML=`<h2>Okay, let's try that again.</h2><button onclick="fYes('Good choice ❤️')">Yes ❤️</button><button onclick="fYes('That\\'s the right answer ❤️')">Definitely Yes ❤️</button>`}
+function fYes(t){form.innerHTML=`<h2>${t}</h2><p>Application accepted successfully ✨</p><img class="gif" src="https://media.giphy.com/media/111ebonMs90YLu/giphy.gif"><button onclick="f3()">Next ❤️</button>`}
+function f3(){form.innerHTML=`<h2>Would you like to continue being Udday's girlfriend?</h2><button onclick="fDone()">Yes ❤️</button><button disabled>There is no other choice</button>`}
+function fDone(){form.innerHTML=`<h2>Application accepted ❤️</h2><button onclick="next()">Continue ❤️</button>`}
 
-const formBox=document.getElementById('formBox');
-const formSlide=document.getElementById('formSlide');
-
-function loadForm1(){
-formSlide.classList.remove('sad');
-formBox.innerHTML=`
-<h2>Do you like Udday?</h2>
-<button onclick="formNo()">No</button>
-<button onclick="formNo()">No</button>`;
+function claim(){document.getElementById('reward').classList.remove('hidden');confetti()}
+function finalPopup(){
+showMini(`<div class="cat">🐱</div><div class="bear">🐻</div><h2>Enjoy your date ❤️</h2><p>Cat and Bear approved this message.</p><button onclick="endSite()">END ❤️</button>`,999999);
 }
-
-function formNo(){
-formSlide.classList.add('sad');
-formBox.innerHTML=`
-<h2>Are you sure about that? 💔</h2>
-<p>Udday.exe has stopped smiling...</p>
-<button onclick="loadForm2()">Try again</button>`;
-}
-
-function loadForm2(){
-formSlide.classList.remove('sad');
-formBox.innerHTML=`
-<h2>Okay, let's try that again.</h2>
-<button onclick="formYes('Good choice ❤️')">Yes ❤️</button>
-<button onclick="formYes('That\\'s the right answer ❤️')">Definitely Yes ❤️</button>`;
-}
-
-function formYes(text){
-formBox.innerHTML=`
-<h2>${text}</h2>
-<p>Application accepted successfully ✨</p>
-<img class="smallGif" src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif">
-<br>
-<button onclick="loadForm3()">Next ❤️</button>`;
-}
-
-function loadForm3(){
-formBox.innerHTML=`
-<h2>Would you like to continue being Udday's girlfriend?</h2>
-<button onclick="applicationAccepted()">Yes ❤️</button>
-<button disabled>There is no other choice</button>`;
-}
-
-function applicationAccepted(){
-formBox.innerHTML=`
-<h2>Application accepted ❤️</h2>
-<button onclick="nextSlide()">Continue ❤️</button>`;
-}
-
-function confetti(){
-const pieces=['🎉','❤️','✨','💖'];
-for(let i=0;i<45;i++){
-const p=document.createElement('span');
-p.className='confetti';
-p.innerText=pieces[Math.floor(Math.random()*pieces.length)];
-p.style.left=Math.random()*100+'vw';
-p.style.animationDuration=(2+Math.random()*2)+'s';
-document.body.appendChild(p);
-setTimeout(()=>p.remove(),4000);
-}
-}
-
-function claimReward(){
-document.getElementById('reward').classList.remove('hidden');
-confetti();
-}
+function endSite(){document.getElementById('miniPop').classList.remove('show');document.getElementById('lastCard').innerHTML=`<h1>❤️ The End ❤️</h1><p>Thank you for visiting.</p><p>Now go enjoy your date.</p><h2>Sofi & Udday ❤️</h2><p>Every love song somehow reminds me of you ❤️</p>`}
+function confetti(){for(let n=0;n<45;n++){let p=document.createElement('span');p.className='confetti';p.innerText=['🎉','❤️','✨','💖'][Math.floor(Math.random()*4)];p.style.left=Math.random()*100+'vw';p.style.animationDuration=(2+Math.random()*2)+'s';document.body.appendChild(p);setTimeout(()=>p.remove(),4000)}}
 </script>
-
 </body>
 </html>
